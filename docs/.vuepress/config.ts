@@ -10,17 +10,30 @@ export default {
   title: "cxyddf",
   description: "cxyddf",
   theme: hopeTheme({
+    author: "cxyddf",
     sidebar,
     navbar,
-    repo: "ddf626/algorithm-codes",
+    repo: "ddf626/ddf-doc-site",
     repoLabel: "GitHub",
     repoDisplay: true,
+    docsBranch: "master",
+    docsDir: "/docs",
+    contributors: false,
     logo: "/logo.png",
     plugins: {
+      git: true,
       prismjs: {
         light: "ghcolors",
       },
       autoCatalog: {},
+      mdEnhance: {
+        // 使用 KaTeX 启用 TeX 支持
+        katex: true,
+        // 使用 mathjax 启用 TeX 支持
+        mathjax: true,
+        codetabs: true,
+      },
+      searchPro: true,
     },
     headerDepth: 6,
   }),
@@ -31,17 +44,5 @@ export default {
       levels: [2, 3, 4, 5, 6],
     },
   },
-  plugins: [
-    mdEnhancePlugin({
-      // 使用 KaTeX 启用 TeX 支持
-      katex: true,
-      // 使用 mathjax 启用 TeX 支持
-      mathjax: true,
-      codetabs: true,
-    }),
-    searchPlugin({
-      // 配置项
-    }),
-    externalLinkIconPlugin({}),
-  ],
+  plugins: [externalLinkIconPlugin({})],
 };
